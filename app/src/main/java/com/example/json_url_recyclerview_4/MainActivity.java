@@ -27,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     // 1 - JSON Link on Internet https://run.mocky.io/v3/2e8cbeaa-6670-4b6b-b21e-a6a5a61f2052
 
-//    private static String JSON_URL = "https://run.mocky.io/v3/7ab7b672-db37-45f1-875e-cbb959aadca8";
-    private static String JSON_URL = "https://run.mocky.io/v3/2e8cbeaa-6670-4b6b-b21e-a6a5a61f2052";
+    // private static String JSON_URL = "https://run.mocky.io/v3/2e8cbeaa-6670-4b6b-b21e-a6a5a61f2052";
+
+    //private static String JSON_URL = "https://run.mocky.io/v3/0b296f1f-3d82-4ffc-87b5-b6a67637257b";
+
+    private static String JSON_URL = "https://run.mocky.io/v3/92daf9b6-9cad-44cf-9084-ab0e184290b8";
 
     List<MovieModelClass> movieList;
 
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             try {
-                JSONObject jsonObject = new JSONObject(s);
+               /* JSONObject jsonObject = new JSONObject(s);
 
                 JSONArray jsonArray = jsonObject.getJSONArray("moviz");
 
@@ -108,6 +111,26 @@ public class MainActivity extends AppCompatActivity {
                     model.setId(jsonObject1.getString("id"));
                     model.setName(jsonObject1.getString("name"));
                     model.setImg(jsonObject1.getString("image"));
+
+                    movieList.add(model);*/
+
+                 JSONArray jsonArray = new JSONArray(s);
+
+                for (int i = 0; i < jsonArray.length(); i++){
+
+                    JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                    MovieModelClass model = new MovieModelClass();
+                    model.setId(jsonObject1.getString("id"));
+                    model.setName(jsonObject1.getString("name"));
+                    model.setImg(jsonObject1.getString("image"));
+
+
+                    JSONObject want = jsonObject1.getJSONObject("wand");
+
+                    model.setWood(want.getString("wood"));
+                    model.setLength(want.getString("length"));
+
 
                     movieList.add(model);
                 }

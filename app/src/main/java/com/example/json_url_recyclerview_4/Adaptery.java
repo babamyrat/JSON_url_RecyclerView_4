@@ -51,14 +51,14 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         holder.id.setText(mData.get(position).getId());
         holder.name.setText(mData.get(position).getName());
 
+
         // using Glide
         Glide.with(mContext)
                 .load(mData.get(position).getImg())
                 .into(holder.img);
 
-//        Picasso.get().load("http://sspu.ru/pages/news/2021/06/23/1.jpg").into(holder.img);
-
-
+        holder.wood.setText(mData.get(position).getWood());
+        holder.length.setText(mData.get(position).getLength());
     }
 
     @Override
@@ -72,6 +72,8 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         TextView id;
         TextView name;
         ImageView img;
+        TextView wood;
+        TextView length;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +81,8 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
             id = itemView.findViewById(R.id.id_txt);
             name = itemView.findViewById(R.id.name_txt);
             img = itemView.findViewById(R.id.imageView);
+            wood = itemView.findViewById(R.id.wood_txt);
+            length = itemView.findViewById(R.id.length_txt);
         }
     }
 }
