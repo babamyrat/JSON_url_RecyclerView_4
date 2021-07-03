@@ -7,13 +7,15 @@ public class MovieModelClass {
     String img;
     String wood;
     String length;
+    String test;
 
-    public MovieModelClass(String id, String name, String img, String wood, String length) {
+    public MovieModelClass(String id, String name, String img, String wood, String length, String test) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.wood = wood;
         this.length = length;
+        this.test = test;
     }
 
     public MovieModelClass() {
@@ -39,6 +41,10 @@ public class MovieModelClass {
         return length;
     }
 
+    public String getTest() {
+        return test;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -57,5 +63,9 @@ public class MovieModelClass {
 
     public void setLength(String length) {
         this.length = length;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
 }

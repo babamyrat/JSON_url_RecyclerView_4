@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     //private static String JSON_URL = "https://run.mocky.io/v3/0b296f1f-3d82-4ffc-87b5-b6a67637257b";
 
-    private static String JSON_URL = "https://run.mocky.io/v3/92daf9b6-9cad-44cf-9084-ab0e184290b8";
+    //private static String JSON_URL = "https://run.mocky.io/v3/92daf9b6-9cad-44cf-9084-ab0e184290b8";
+
+    private static String JSON_URL = "https://run.mocky.io/v3/4ead7731-4ca1-498b-bcfd-dc25cca59430";
 
     List<MovieModelClass> movieList;
 
@@ -99,20 +101,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
 
             try {
-               /* JSONObject jsonObject = new JSONObject(s);
 
-                JSONArray jsonArray = jsonObject.getJSONArray("moviz");
-
-                for (int i = 0; i < jsonArray.length(); i++){
-
-                    JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
-                    MovieModelClass model = new MovieModelClass();
-                    model.setId(jsonObject1.getString("id"));
-                    model.setName(jsonObject1.getString("name"));
-                    model.setImg(jsonObject1.getString("image"));
-
-                    movieList.add(model);*/
 
                  JSONArray jsonArray = new JSONArray(s);
 
@@ -125,11 +114,12 @@ public class MainActivity extends AppCompatActivity {
                     model.setName(jsonObject1.getString("name"));
                     model.setImg(jsonObject1.getString("image"));
 
+                    model.setTest(jsonObject1.getString("test"));
 
                     JSONObject want = jsonObject1.getJSONObject("wand");
-
                     model.setWood(want.getString("wood"));
                     model.setLength(want.getString("length"));
+
 
 
                     movieList.add(model);
@@ -141,10 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
             PutDataIntoRecyclerView(movieList);
-
-
 
         }
     }
@@ -156,19 +143,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adaptery);
     }
-
-
-//    public String GetDataFromUrl(String url){
-//        if(url.toLowerCase().startsWith("https")){
-//            //HTTPS:
-//            return GetHTTPSData(url);
-//        }else{
-//            //HTTP:
-//            return GetHTTPData(url);
-//        }
-//    }
-
-
 
 
 }

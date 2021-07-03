@@ -59,6 +59,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
         holder.wood.setText(mData.get(position).getWood());
         holder.length.setText(mData.get(position).getLength());
+        holder.test.setText(mData.get(position).getTest());
     }
 
     @Override
@@ -74,6 +75,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         ImageView img;
         TextView wood;
         TextView length;
+        TextView test;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +85,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
             img = itemView.findViewById(R.id.imageView);
             wood = itemView.findViewById(R.id.wood_txt);
             length = itemView.findViewById(R.id.length_txt);
+            test = itemView.findViewById(R.id.test_txt);
         }
     }
 }

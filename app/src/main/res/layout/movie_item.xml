@@ -56,10 +56,21 @@
         android:id="@+id/length_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/wood_txt"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/wood_txt" />
+        app:layout_constraintStart_toStartOf="@+id/wood_txt"
+        app:layout_constraintTop_toBottomOf="@+id/wood_txt" />
+
+    <TextView
+        android:id="@+id/test_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/length_txt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/length_txt"
+        app:layout_constraintTop_toBottomOf="@+id/length_txt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
