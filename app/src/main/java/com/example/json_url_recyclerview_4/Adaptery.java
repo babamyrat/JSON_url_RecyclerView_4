@@ -48,9 +48,10 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull  Adaptery.MyViewHolder holder, int position) {
 
-        holder.id.setText(mData.get(position).getId());
-        holder.name.setText(mData.get(position).getName());
 
+        holder.name.setText(mData.get(position).getName());
+        holder.species.setText(mData.get(position).getSpecies());
+        holder.gender.setText(mData.get(position).getHogwartsStudent());
 
         // using Glide
         Glide.with(mContext)
@@ -59,7 +60,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
         holder.wood.setText(mData.get(position).getWood());
         holder.length.setText(mData.get(position).getLength());
-        holder.test.setText(mData.get(position).getTest());
+
     }
 
     @Override
@@ -70,22 +71,25 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView id;
+
         TextView name;
+        TextView species;
+        TextView gender;
         ImageView img;
         TextView wood;
         TextView length;
-        TextView test;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.id_txt);
             name = itemView.findViewById(R.id.name_txt);
+            species = itemView.findViewById(R.id.id_txt);
+            gender = itemView.findViewById(R.id.test_txt);
             img = itemView.findViewById(R.id.imageView);
             wood = itemView.findViewById(R.id.wood_txt);
             length = itemView.findViewById(R.id.length_txt);
-            test = itemView.findViewById(R.id.test_txt);
+
         }
     }
 }

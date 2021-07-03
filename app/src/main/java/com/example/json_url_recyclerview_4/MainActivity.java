@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     //private static String JSON_URL = "https://run.mocky.io/v3/92daf9b6-9cad-44cf-9084-ab0e184290b8";
 
-    private static String JSON_URL = "https://run.mocky.io/v3/4ead7731-4ca1-498b-bcfd-dc25cca59430";
+//    private static String JSON_URL = "https://run.mocky.io/v3/4ead7731-4ca1-498b-bcfd-dc25cca59430";
+
+    private static String JSON_URL = "http://hp-api.herokuapp.com/api/characters";
 
     List<MovieModelClass> movieList;
 
@@ -110,14 +112,25 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                     MovieModelClass model = new MovieModelClass();
-                    model.setId(jsonObject1.getString("id"));
                     model.setName(jsonObject1.getString("name"));
+                    model.setSpecies(jsonObject1.getString("species"));
+                    model.setGender(jsonObject1.getString("gender"));
+                    model.setHouse(jsonObject1.getString("house"));
+                    model.setDateOfBirth(jsonObject1.getString("dateOfBirth"));
+                    model.setYearOfBirth(jsonObject1.getString("yearOfBirth"));
+                    model.setAncestry(jsonObject1.getString("ancestry"));
+                    model.setEyeColour(jsonObject1.getString("eyeColour"));
+                    model.setHairColour(jsonObject1.getString("hairColour"));
+                    model.setPatronus(jsonObject1.getString("patronus"));
+                    model.setHogwartsStudent(jsonObject1.getString("hogwartsStudent"));
+                    model.setHogwartsStaff(jsonObject1.getString("hogwartsStaff"));
+                    model.setActor(jsonObject1.getString("actor"));
+                    model.setAlive(jsonObject1.getString("alive"));
                     model.setImg(jsonObject1.getString("image"));
-
-                    model.setTest(jsonObject1.getString("test"));
 
                     JSONObject want = jsonObject1.getJSONObject("wand");
                     model.setWood(want.getString("wood"));
+                    model.setCore(want.getString("core"));
                     model.setLength(want.getString("length"));
 
 

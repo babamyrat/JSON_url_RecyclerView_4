@@ -2,70 +2,195 @@ package com.example.json_url_recyclerview_4;
 
 public class MovieModelClass {
 
-    String id;
     String name;
-    String img;
-    String wood;
-    String length;
-    String test;
+    String species;
+    String gender;
+    String house;
+    String dateOfBirth;
+    String yearOfBirth;
+    String ancestry;
+    String eyeColour;
+    String hairColour;
 
-    public MovieModelClass(String id, String name, String img, String wood, String length, String test) {
-        this.id = id;
+    String wood;
+    String core;
+    String length;
+
+    String patronus;
+    String hogwartsStudent;
+    String hogwartsStaff;
+    String actor;
+    String alive;
+    String img;
+
+    public MovieModelClass(String name, String species, String gender, String house, String dateOfBirth,
+                           String yearOfBirth, String ancestry, String eyeColour, String hairColour,
+                           String wood, String core, String length, String patronus, String hogwartsStudent,
+                           String hogwartsStaff, String actor, String alive, String img) {
         this.name = name;
-        this.img = img;
+        this.species = species;
+        this.gender = gender;
+        this.house = house;
+        this.dateOfBirth = dateOfBirth;
+        this.yearOfBirth = yearOfBirth;
+        this.ancestry = ancestry;
+        this.eyeColour = eyeColour;
+        this.hairColour = hairColour;
         this.wood = wood;
+        this.core = core;
         this.length = length;
-        this.test = test;
+        this.patronus = patronus;
+        this.hogwartsStudent = hogwartsStudent;
+        this.hogwartsStaff = hogwartsStaff;
+        this.actor = actor;
+        this.alive = alive;
+        this.img = img;
     }
 
     public MovieModelClass() {
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getImg() {
-        return img;
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getAncestry() {
+        return ancestry;
+    }
+
+    public String getEyeColour() {
+        return eyeColour;
+    }
+
+    public String getHairColour() {
+        return hairColour;
     }
 
     public String getWood() {
         return wood;
     }
 
+    public String getCore() {
+        return core;
+    }
+
     public String getLength() {
         return length;
     }
 
-    public String getTest() {
-        return test;
+    public String getPatronus() {
+        return patronus;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getHogwartsStudent() {
+        return hogwartsStudent;
+    }
+
+    public String getHogwartsStaff() {
+        return hogwartsStaff;
+    }
+
+    public String getActor() {
+        return actor;
+    }
+
+    public String getAlive() {
+        return alive;
+    }
+
+    public String getImg() {
+        return img;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setYearOfBirth(String yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public void setAncestry(String ancestry) {
+        this.ancestry = ancestry;
+    }
+
+    public void setEyeColour(String eyeColour) {
+        this.eyeColour = eyeColour;
+    }
+
+    public void setHairColour(String hairColour) {
+        this.hairColour = hairColour;
     }
 
     public void setWood(String wood) {
         this.wood = wood;
     }
 
+    public void setCore(String core) {
+        this.core = core;
+    }
+
     public void setLength(String length) {
         this.length = length;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setPatronus(String patronus) {
+        this.patronus = patronus;
+    }
+
+    public void setHogwartsStudent(String hogwartsStudent) {
+        this.hogwartsStudent = hogwartsStudent;
+    }
+
+    public void setHogwartsStaff(String hogwartsStaff) {
+        this.hogwartsStaff = hogwartsStaff;
+    }
+
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
+
+    public void setAlive(String alive) {
+        this.alive = alive;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
