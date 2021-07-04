@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            username = extras.getString("username");
+            username = extras.getString("name");
         }
 
         textView.setText(username);

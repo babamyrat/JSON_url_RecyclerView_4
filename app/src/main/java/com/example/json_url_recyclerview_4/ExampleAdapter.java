@@ -17,11 +17,13 @@ import java.util.List;
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<ExampleItem> mData;
+    private List<ExampleItem> mExampleItem;
+    private RecyclerViewClickListener listener;
 
-    public ExampleAdapter(Context mContext, List<ExampleItem> mData) {
+    public ExampleAdapter(Context mContext, List<ExampleItem> mExampleItem, RecyclerViewClickListener listener) {
         this.mContext = mContext;
-        this.mData = mData;
+        this.mExampleItem = mExampleItem;
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,27 +46,31 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.MyViewHo
     public void onBindViewHolder(@NonNull  ExampleAdapter.MyViewHolder holder, int position) {
 
 
-        holder.name.setText(mData.get(position).getName());
-        holder.species.setText(mData.get(position).getSpecies());
-        holder.gender.setText(mData.get(position).getHogwartsStudent());
+        holder.name.setText(mExampleItem.get(position).getName());
+        holder.species.setText(mExampleItem.get(position).getSpecies());
+        holder.gender.setText(mExampleItem.get(position).getHogwartsStudent());
 
         // using Glide
         Glide.with(mContext)
-                .load(mData.get(position).getImg())
+                .load(mExampleItem.get(position).getImg())
                 .into(holder.img);
 
-        holder.wood.setText(mData.get(position).getWood());
-        holder.length.setText(mData.get(position).getLength());
+        holder.wood.setText(mExampleItem.get(position).getWood());
+        holder.length.setText(mExampleItem.get(position).getLength());
 
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mExampleItem.size();
 
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public interface RecyclerViewClickListener{
+        void onClick(View v, int position);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
         TextView name;
@@ -73,6 +79,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.MyViewHo
         ImageView img;
         TextView wood;
         TextView length;
+
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -84,6 +91,13 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.MyViewHo
             img = itemView.findViewById(R.id.imageView);
             wood = itemView.findViewById(R.id.wood_txt);
             length = itemView.findViewById(R.id.length_txt);
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(itemView, getAdapterPosition());
 
         }
     }

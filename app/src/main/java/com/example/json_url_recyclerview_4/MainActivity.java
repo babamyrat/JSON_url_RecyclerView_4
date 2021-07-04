@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static String JSON_URL = "http://hp-api.herokuapp.com/api/characters";
 
-    List<ExampleItem> mExampleItem;
-
-    RecyclerView recyclerView;
+    private List<ExampleItem> mExampleItem;
+    private RecyclerView recyclerView;
+    private ExampleAdapter.RecyclerViewClickListener listener;
 
 
     @Override
@@ -146,11 +148,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void PutDataIntoRecyclerView(List<ExampleItem> mExampleItem){
-        ExampleAdapter adaptery = new ExampleAdapter(this, mExampleItem);
+        setOnClickListener();
+        ExampleAdapter adapter = new ExampleAdapter(this, mExampleItem, listener);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        recyclerView.setAdapter(adaptery);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setOnClickListener() {
+        listener = new ExampleAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("name", mExampleItem.get(position).getName());
+                startActivity(intent);
+            }
+        };
     }
 
 
