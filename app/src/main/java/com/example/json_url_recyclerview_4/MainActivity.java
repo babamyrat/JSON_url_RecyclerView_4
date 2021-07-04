@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity {
         listener = new ExampleAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra("name", mExampleItem.get(position).getName());
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                intent.putExtra("Example Item", mExampleItem.get(position));
                 startActivity(intent);
             }
         };

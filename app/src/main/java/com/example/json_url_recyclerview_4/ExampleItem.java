@@ -1,6 +1,9 @@
 package com.example.json_url_recyclerview_4;
 
-public class ExampleItem {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ExampleItem implements Parcelable {
 
     String name;
     String species;
@@ -48,6 +51,14 @@ public class ExampleItem {
     }
 
     public ExampleItem() {
+
+    }
+
+    protected ExampleItem(Parcel in) {
+        name = in.readString();
+        species = in.readString();
+        gender = in.readString();
+        img = in.readString();
     }
 
     public String getName() {
@@ -192,5 +203,32 @@ public class ExampleItem {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+
+
+    public static final Parcelable.Creator<ExampleItem> CREATOR = new Creator<ExampleItem>() {
+        @Override
+        public ExampleItem createFromParcel(Parcel in) {
+            return new ExampleItem(in);
+        }
+
+        @Override
+        public ExampleItem[] newArray(int size) {
+            return new ExampleItem[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(species);
+        dest.writeString(gender);
+        dest.writeString(img);
     }
 }
