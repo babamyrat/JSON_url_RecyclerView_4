@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Movie;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,12 +15,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String JSON_URL = "http://hp-api.herokuapp.com/api/characters";
 
-    List<MovieModelClass> movieList;
+    List<ExampleItem> mExampleItem;
 
     RecyclerView recyclerView;
 
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     movieList = new ArrayList<>();
+     mExampleItem = new ArrayList<>();
      recyclerView = findViewById(R.id.recyclerView);
 
 
@@ -111,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
-                    MovieModelClass model = new MovieModelClass();
+                    ExampleItem model = new ExampleItem();
                     model.setName(jsonObject1.getString("name"));
                     model.setSpecies(jsonObject1.getString("species"));
                     model.setGender(jsonObject1.getString("gender"));
@@ -135,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    movieList.add(model);
+                    mExampleItem.add(model);
                 }
 
 
@@ -144,13 +140,13 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            PutDataIntoRecyclerView(movieList);
+            PutDataIntoRecyclerView(mExampleItem);
 
         }
     }
 
-    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
-        Adaptery adaptery = new Adaptery(this, movieList);
+    private void PutDataIntoRecyclerView(List<ExampleItem> mExampleItem){
+        ExampleAdapter adaptery = new ExampleAdapter(this, mExampleItem);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 

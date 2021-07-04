@@ -1,7 +1,6 @@
 package com.example.json_url_recyclerview_4;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<MovieModelClass> mData;
+    private List<ExampleItem> mData;
 
-    public Adaptery(Context mContext, List<MovieModelClass> mData) {
+    public ExampleAdapter(Context mContext, List<ExampleItem> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -46,7 +41,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
 
     @Override
-    public void onBindViewHolder(@NonNull  Adaptery.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull  ExampleAdapter.MyViewHolder holder, int position) {
 
 
         holder.name.setText(mData.get(position).getName());

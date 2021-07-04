@@ -1,6 +1,6 @@
 package com.example.json_url_recyclerview_4;
 
-public class MovieModelClass {
+public class ExampleItem {
 
     String name;
     String species;
@@ -23,10 +23,10 @@ public class MovieModelClass {
     String alive;
     String img;
 
-    public MovieModelClass(String name, String species, String gender, String house, String dateOfBirth,
-                           String yearOfBirth, String ancestry, String eyeColour, String hairColour,
-                           String wood, String core, String length, String patronus, String hogwartsStudent,
-                           String hogwartsStaff, String actor, String alive, String img) {
+    public ExampleItem(String name, String species, String gender, String house, String dateOfBirth,
+                       String yearOfBirth, String ancestry, String eyeColour, String hairColour,
+                       String wood, String core, String length, String patronus, String hogwartsStudent,
+                       String hogwartsStaff, String actor, String alive, String img) {
         this.name = name;
         this.species = species;
         this.gender = gender;
@@ -47,7 +47,7 @@ public class MovieModelClass {
         this.img = img;
     }
 
-    public MovieModelClass() {
+    public ExampleItem() {
     }
 
     public String getName() {
